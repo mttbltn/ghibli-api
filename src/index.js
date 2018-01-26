@@ -1,7 +1,5 @@
-class App extends Component {
-  componentDidMount() {
-    fetch("https://ghibliapi.herokuapp.com/films")
-      .then(res => res.json())
-      .then(obj => console.log(obj));
-  }
-}
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./components/App";
+
+ReactDOM.render(<App />, document.getElementById("root"));
