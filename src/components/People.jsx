@@ -1,34 +1,35 @@
 import React, { Component } from "react";
-import FilmCard from "./FilmCard";
+import PeopleCard from "./PeopleCard";
 import Jumbotron from "./Jumbotron";
 
-export default class Films extends Component {
+export default class People extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      films: []
+      people: []
     };
   }
+
   componentDidMount() {
-    fetch("https://ghibliapi.herokuapp.com/films")
+    fetch("https://ghibliapi.herokuapp.com/people")
       .then(res => {
         console.log("First API response", res);
         return res.json();
       })
       .then(obj => {
         console.log("Original parsed data", obj);
-        this.setState({ films: obj });
-        console.log("Newly set state", this.state.films);
+        this.setState({ people: obj });
+        console.log("Newly set state", this.state.people);
       });
   }
 
   render() {
     return (
       <React.Fragment>
-          <Jumbotron />
+        <Jumbotron />
         <div className="container">
-          <FilmCard filmList={this.state.films} />
+          <PeopleCard peopleList={this.state.people} />
         </div>
       </React.Fragment>
     );
